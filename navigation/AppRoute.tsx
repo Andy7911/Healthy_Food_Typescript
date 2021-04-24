@@ -7,7 +7,7 @@ import CommandScreen from '../component/Command'
 
  const AppRoute = createStackNavigator({
 
-Dish:{
+Dishes:{
 
     screen:CommandScreen
 }

@@ -23,12 +23,12 @@ export type profil = {
 };
 
 export interface IDatabase {
-  DishList(): Promise<assiete>;
+  DishList(): Promise<assiete[]>;
   DesertList(): Promise<dessert[]>;
 }
 
 export class DatabaseSource implements IDatabase {
-  async DishList(): Promise<assiete> {
+  async DishList(): Promise<assiete[]> {
     return Promise.resolve(
       await firebase
         .database()
