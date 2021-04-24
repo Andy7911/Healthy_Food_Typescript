@@ -21,6 +21,7 @@
     "react-dom": "^16.14.0",
     "react-native": "0.64.0",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-push-notification": "^7.2.3",
     "react-native-reanimated": "^2.1.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.1.1",
@@ -35,6 +36,7 @@
     "@react-native-community/eslint-config": "^2.0.0",
     "@testing-library/jest-native": "^4.0.1",
     "@testing-library/react-native": "^7.2.0",
+    "@types/enzyme": "^3.10.8",
     "@types/jest": "^26.0.20",
     "@types/react-native": "^0.64.0",
     "@types/react-test-renderer": "^16.9.2",
@@ -54,7 +56,8 @@
   "jest": {
     "preset": "react-native",
     "transformIgnorePatterns": [
-      "/node_modules/native-base/"
+      "/node_modules/native-base/",
+      "/node_modules/react-native-fs/"
     ],
     "setupFilesAfterEnv": [
       "jest-enzyme"
