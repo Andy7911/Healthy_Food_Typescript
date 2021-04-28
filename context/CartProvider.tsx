@@ -40,7 +40,7 @@ class CartProvider extends React.Component<{}, IState>{
         items.splice(index, 1);
         this.setState({ panier: items })
     }
-    addQuantite(id:number,Dish:[{quatité:number,sommePrix:number,prix:number}]){
+    addQuantite(id:number,Dish:{quatité:number,sommePrix:number,prix:number}){
         const items = this.state.panier.slice();
         const item = items.find(function(x:any){ x.id==id})
         if(item!= undefined){
@@ -50,10 +50,11 @@ class CartProvider extends React.Component<{}, IState>{
             item.sommePrix = nvprix;
         }
         else {
-
-            Dish[0].quatité = 1
-            Dish[0].sommePrix = Dish[0].prix;
-            this.setState({panier:[...Dish]});
+            
+            Dish.quatité = 1
+            Dish.sommePrix = Dish.prix;
+            items.push(Dish)
+            this.setState({panier:[...items]});
         }
     }
 
