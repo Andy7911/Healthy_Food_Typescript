@@ -16,13 +16,14 @@ export default class LoginScreen extends Component<Props> {
         email:'',
         auth:false
       };
-    static contextType = authCtxt;
+    static contextType = AuthContext;
     constructor(props:Props) {
      
       super(props);
      
     } 
     render() {
+      const{panier,login,setPanier,addQuantite}=this.context
         const { navigation } = this.props;
         const authContext:ICtxt =this.context;
         const UrlImg:string = 'https://i.ibb.co/GHtvyKY/logo-health-food-eating-vector-fork-logo-46ef4e30c07292c0988b786f43ea8a52.png'
@@ -56,7 +57,7 @@ export default class LoginScreen extends Component<Props> {
       </Form>
       </View>
       <View style={{ flex:2, flexDirection:'column',justifyContent:'center'}}>
-        <Button rounded success onPress={()=>{authContext.actions.login(this.state.email,this.state.password)
+        <Button rounded success onPress={()=>{login(this.state.email,this.state.password)
           
         }} block ><Text >Connection</Text></Button>
         <Text onPress={()=>navigation.navigate('SubcribeScreen')} style={{textAlign:'center',marginTop:15}}>Subcribe here </Text>
