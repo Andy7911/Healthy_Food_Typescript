@@ -3,13 +3,13 @@ import auth from '@react-native-firebase/auth';
 import {AuthProvider,AuthContext} from '../context/AuthProvider'
 import { AppRouteContainer } from './AppRoute';
 import { LoginRoute, LoginRouteContainer } from './LoginRoute';
-import{ authCtxt,AuthProvider2,ICtxt} from '../context/AuthProvider2'
+
 
 export default function ALLRoute(){
-    const { user, setUser, logout } = useContext(AuthContext);
     const [initializing, setInitializing] = useState(true);
+    const { user, setUser, logout } = useContext(AuthContext);
     function onAuthStateChanged(user:any) {
-       setUser(user);
+        setUser(user);
         if (initializing) setInitializing(false);
     }
     useEffect(() => {

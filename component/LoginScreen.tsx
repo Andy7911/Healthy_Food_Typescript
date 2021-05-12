@@ -4,7 +4,6 @@ import{Container,Form,Item,Label,Icon,Content,Input,Button}  from 'native-base'
 import {AuthContext} from '../context/AuthProvider'
 import { StackNavigationProp } from '@react-navigation/stack';
 import { NavigationStackProp } from 'react-navigation-stack';
-import{ authCtxt,AuthProvider2,ICtxt} from '../context/AuthProvider2'
 
  
 type Props = {
@@ -12,7 +11,7 @@ type Props = {
   }
 export default class LoginScreen extends Component<Props> {
  state = {
-        password:'',
+        password: 0,
         email:'',
         auth:false
       };
@@ -23,9 +22,8 @@ export default class LoginScreen extends Component<Props> {
      
     } 
     render() {
-      const{panier,login,setPanier,addQuantite}=this.context
         const { navigation } = this.props;
-        const authContext:ICtxt =this.context;
+        const{register,login}=this.context
         const UrlImg:string = 'https://i.ibb.co/GHtvyKY/logo-health-food-eating-vector-fork-logo-46ef4e30c07292c0988b786f43ea8a52.png'
         return (
                
@@ -57,7 +55,7 @@ export default class LoginScreen extends Component<Props> {
       </Form>
       </View>
       <View style={{ flex:2, flexDirection:'column',justifyContent:'center'}}>
-        <Button rounded success onPress={()=>{login(this.state.email,this.state.password)
+        <Button rounded success onPress={()=>{ login(this.state.email,this.state.password)
           
         }} block ><Text >Connection</Text></Button>
         <Text onPress={()=>navigation.navigate('SubcribeScreen')} style={{textAlign:'center',marginTop:15}}>Subcribe here </Text>
