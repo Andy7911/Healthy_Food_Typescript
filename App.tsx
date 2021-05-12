@@ -27,6 +27,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import { AuthProvider, } from './context/AuthProvider';
+import{AuthProvider2,ICtxt,authCtxt} from './context/AuthProvider2'
 import ALLRoute from './navigation/AllRoute';
 
 

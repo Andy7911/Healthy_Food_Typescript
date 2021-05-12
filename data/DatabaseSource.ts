@@ -14,14 +14,21 @@ export type dessert = {
   prix: number;
   url: string;
 };
+export type profil = {
+  uuid: string;
+  name: string;
+  lastname: string;
+  photo: string;
+  creditCard: string;
+};
 
 export interface IDatabase {
-  DishList(): Promise<assiete>;
+  DishList(): Promise<assiete[]>;
   DesertList(): Promise<dessert[]>;
 }
 
 export class DatabaseSource implements IDatabase {
-  async DishList(): Promise<assiete> {
+  async DishList(): Promise<assiete[]> {
     return Promise.resolve(
       await firebase
         .database()
@@ -30,7 +37,8 @@ export class DatabaseSource implements IDatabase {
         .then(res => res.val()),
     );
   }
-  DesertList(): Promise<assiete[]> {
-    return Promise.resolve([]);
+  async DesertList(): Promise<assiete[]> {
+    return Promise.resolve(await firebase 
+      .database().ref('Dessert').once('value').then(res=>res.val()));
   }
 }
